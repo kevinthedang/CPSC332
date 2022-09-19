@@ -21,9 +21,11 @@
             window.onload = function() {
                 var firstname = GetURLParameterValue("first");
                 var lastname = GetURLParameterValue("last");
+                var rating = GetURLParameterValue('rating');
 
                 document.getElementById("fname").textContent = firstname;
                 document.getElementById("lname").textContent = lastname;
+                document.getElementById("user_rating").textContent = rating;
             }
 
             function GetURLParameterValue(searchParameter) {
@@ -53,6 +55,7 @@
                     <!-- Table data from other page -->
                     <td id="fname"></td>
                     <td id="lname"></td>
+                    <td id="user_rating"></td>
                 </tr>
             </tbody>
         </table>
