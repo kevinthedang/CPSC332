@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Submission Page</title>
+
+        <style>
+            table, th {
+                border: 1px solid black;
+            }
+            
+            td {
+                border: 1px dotted black;
+            }
+        </style>
+        <!-- GET Script -->
+        <script>
+            // Get data from another page
+            window.onload = function() {
+                var firstname = GetURLParameterValue("first");
+                var lastname = GetURLParameterValue("last");
+                var rating = GetURLParameterValue('rating');
+
+                document.getElementById("fname").textContent = firstname;
+                document.getElementById("lname").textContent = lastname;
+                document.getElementById("user_rating").textContent = rating;
+            }
+
+            function GetURLParameterValue(searchParameter) {
+                var queryString = window.location.search.substring(1);
+                var URLFieldValues = queryString.split('&');
+
+                for (var index = 0; index < URLFieldValues.length; ++index) {
+                    var parameterValues = URLFieldValues[index].split('=');
+                    if (parameterValues[0] == searchParameter) {
+                        return parameterValues[1];
+                    }
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <h1>Thank You For Your Private Information!</h1>
+        <!-- Include code below -->
+        <table>
+            <caption>This table has your Private Information!</caption>
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>User Rating</th>
+                </tr>
+                <tr>
+                    <!-- Table data from other page -->
+                    <td id="fname"></td>
+                    <td id="lname"></td>
+                    <td id="user_rating"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <a href="../../">Back to the index</a>
+        </p>
+    </body>
+</html>
