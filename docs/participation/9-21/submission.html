@@ -21,11 +21,17 @@
             window.onload = function() {
                 var firstname = GetURLParameterValue("first");
                 var lastname = GetURLParameterValue("last");
-                var rating = GetURLParameterValue('rating');
+                var password = GetURLParameterValue("password");
+                var rating = GetURLParameterValue("rating");
+                var afraid = GetURLParameterValue("agree");
+                var confused = GetURLParameterValue("confused");
 
                 document.getElementById("fname").textContent = firstname;
                 document.getElementById("lname").textContent = lastname;
+                document.getElementById("pass").textContent = password;
                 document.getElementById("user_rating").textContent = rating;
+                document.getElementById("afraid").textContent = afraid;
+                document.getElementById("confused").textContent = confused;
             }
 
             function GetURLParameterValue(searchParameter) {
@@ -50,13 +56,19 @@
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Stolen Password</th>
                     <th>User Rating</th>
+                    <th>Afraid</th>
+                    <th>Confused</th>
                 </tr>
                 <tr>
                     <!-- Table data from other page -->
                     <td id="fname"></td>
                     <td id="lname"></td>
+                    <td id="pass"></td>
                     <td id="user_rating"></td>
+                    <td id="afraid"></td>
+                    <td id="confused"></td>
                 </tr>
             </tbody>
         </table>
