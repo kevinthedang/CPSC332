@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>9-26 Participation</title>
     <style>
         /*
         https://www.w3schools.com/cssref/css3_pr_background.asp
@@ -21,13 +21,35 @@
             example:
             background: lightblue url("img_tree.gif") no-repeat fixed center;
         */
+        body {
+            background-color: azure;
+            /* background-image: url("../9-16/water-bottle.png"); */
+        }
+        h1 {
+            color: orange;
+            text-align: center;
+        }
+        .custom-green {
+            color: darkcyan;
+            padding: 5px 4px 4px 5px;
+            border: 5px ridge rebeccapurple;
+        }
+        .center_div {
+            display: flex;
+            justify-content: center;
+        }
+        #second-paragraph {
+            color: crimson;
+        }
     </style>
 </head>
 
 <body>
     <h1>The Color Property</h1>
     <!--float allows text to flow around the image-->
-    <img id="test" src="../9-16/water-bottle.png" height="100">
+    <div class="center_div">
+        <img id="test" src="../9-16/water-bottle.png" height="100">
+    </div>
     <!--clear prevents text to flow around the image-->
     <p class="custom-green">
         <!-- <img id="test2" src="cough.jpg" height="100"> -->
@@ -48,6 +70,8 @@
         varius
         pulvinar nec et diam.
     </p>
+
+    <p style="text-align: center;"><a href="../../index.html">Back to the index page</a></p>
 
     <p id="second-paragraph">This is some text</p>
     <p>This is some text</p>
