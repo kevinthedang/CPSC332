@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <title>Grid Layout</title>
+
+        <style>
+            .grid-container {
+                width: 700px;
+                display: grid;
+                font-size: 2em;
+            }
+            .grid-container > div {
+                padding: 10px;
+            }
+            #logo-nav {
+                background-color: gray;
+                grid-column: 1 / 5;
+                grid-row: 1 / 2;
+                height: 60px;
+            }
+            #image {
+                background-color: greenyellow;
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                height: 300px;
+                width: 200px;
+            }
+            #main {
+                background-color: cornflowerblue;
+                grid-column: 2 / 5;
+                grid-row: 3 / 4;
+                width: 500px;
+            }
+            a {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 style="text-align: center;">Grid Layout</h1>
+        </header>
+        <div class="grid-container">
+            <div id="logo-nav">
+                Logo - Navigation sections
+            </div>
+            <div id="image">
+                Profile Image
+            </div>
+            <div id="main">
+                Main Stuff
+                <p>
+                    <a href="../../index.html">Back to Index</a>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
