@@ -16,6 +16,7 @@
         div {}
 
         #fake-button {
+            font-size: xxx-large;
             /*
                 offset-x - Horizontal pixel offset of shadow
                 offset-y - Vertical pixel offset of shadow
@@ -23,6 +24,7 @@
                 color - Optional shadow color (default is usually the current CSS color)
             */
             color: black;
+            text-shadow: 5px 2px 10px green;
 
             /*
                 inset - Optional value that draws the shadow inside the box (default is outside the box)
@@ -32,6 +34,7 @@
                 spread-radius - Positive value causes shadow to grow, negative values to shrink (default is 0)
                 color - Optional shadow color (default is usually the current CSS color)
             */
+            box-shadow: 5px 2px 5px blue;
 
             /* border-radius
                 Single value - All four corners are equally rounded
@@ -42,12 +45,12 @@
                 Four values - First value is top-left, second is top-right, third is bottom-right, forth 
                     is bottom-left
             */
-            border-radius: 8px;
+            border-radius: 8px 2px 20px;
 
             /* border-image
                 renders an element's border using sections of an image
             */
-            border: 10px solid;
+            border: 100px solid;
             border-image: url("neutron_tpose.jpeg");
 
             /* linear-gradient 
@@ -58,6 +61,9 @@
                 needs a name to match with the keyframe rules
                 add additional properties/values to activate
             */
+            animation-name: changeSize;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
 
         }
 
@@ -69,11 +75,23 @@
 
         #fake-button:hover {}
 
-        #fake-button:active {}
+        #fake-button:active {
+            color: red;
+        }
 
         @keyframes changeColors {}
 
-        @keyframes changeSize {}
+        @keyframes changeSize {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.75);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
