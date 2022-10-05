@@ -3,12 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
         <title>10-5 Participation</title>
 
         <style>
             body ol {
                 list-style: lower-alpha;
+                border: 10px
+            }
+            .list-container {
+                display: flex;
+                justify-content: center;
             }
         </style>
 
@@ -17,16 +22,25 @@
                 var myInt = 42;         // Acts differently from let, becomes broader in scope than you might think
                 let myOtherInt = 9001;  // Usually use this syntax for local variables
                 anotherInt = 9000;      // things that are undeclared are fine, JavaScript does not care
+                let myOtherVar = null;
+                //alert("I'm super annoying");
+
+                const SOME_VALUE = 3.14159;
+
+                let myDouble;
+                console.log("This is a log message for debugging")
             }
         </script>
     </head>
     <body>
-        <h1>10-5 JavaScript</h1>
+        <h1 style="text-align: center;">10-5 JavaScript</h1>
         <!-- Questions from Canvas -->
-        <ol>
-            <li>In high school, I had an entire years worth of JavaScript to make some games like tic tac toe.</li>
-            <li>Today, I found that-</li>
-        </ol>
-        <a href="../../index.html">Back to the index</a>
+        <div class="list-container">
+            <ol>
+                <li>In high school, I had an entire years worth of JavaScript to make some games like tic tac toe.</li>
+                <li>Today, I found that we are able to test JavaScript code through VSCode! I have done this before with python, but I never realized that it could be used for other languages. I want to also apply these scripting skills eventually towards React.</li>
+            </ol>
+        </div>
+        <p style="text-align: center;"><a href="../../index.html">Back to the index</a></p>
     </body>
 </html>
