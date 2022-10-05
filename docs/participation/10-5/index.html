@@ -13,7 +13,11 @@
         </style>
 
         <script>
-            
+            window.onload = function() {
+                var myInt = 42;         // Acts differently from let, becomes broader in scope than you might think
+                let myOtherInt = 9001;  // Usually use this syntax for local variables
+                anotherInt = 9000;      // things that are undeclared are fine, JavaScript does not care
+            }
         </script>
     </head>
     <body>
