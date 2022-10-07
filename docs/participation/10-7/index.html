@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- <link href="css/style.css" rel="stylesheet"> -->
-        <title>10-5 Participation</title>
+        <title>10-7 Participation</title>
 
         <style>
-            body ol {
-                list-style: lower-alpha;
-                border: 10px
+            img {
+                border: 8px ridge green;
+                padding: 10px;
             }
             .list-container {
                 display: flex;
@@ -34,7 +34,33 @@
                 {
                     let crazy = 42;
                 }
-                alert ("you said: " + "holy cow!");
+                alert ("you said: " + "what a meme!");
+
+                let number = 2;
+                let aString = "2";
+
+                console.log(number + 2);
+                console.log(number + "2");
+                console.log(number + parseInt(aString));
+
+                if (number == parseInt(aString))
+                {
+                    console.log(number + parseInt(aString));
+                }
+
+                if (number === 3)
+                {
+                    // this will be false 2 === 3
+                    if (number === 10)
+                    {
+                        // this will be false 2 === 10
+                        // same value and same datatype only
+                    }
+                }
+                else
+                {
+                    console.log("number was not " + number);
+                }
             }
         </script>
     </head>
@@ -42,7 +68,7 @@
         <h1 style="text-align: center;">10-7 JavaScript</h1>
         <!-- Questions from Canvas -->
         <div class="list-container">
-            <img src="./what-a-meme.jpg" alt="this is a bad meme" width="500px">
+            <img src="./what-a-meme.jpg" alt="this is a bad meme" width="750px">
         </div>
         <p style="text-align: center;"><a href="../../index.html">Back to the index</a></p>
     </body>
