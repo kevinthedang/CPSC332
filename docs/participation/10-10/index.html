@@ -42,7 +42,7 @@
                 {
                     let crazy = 42;
                 }
-                alert ("you said: " + "what a meme!");
+                //alert ("you said: " + "what a meme!");
 
                 let number = 2;
                 let aString = "2";
@@ -77,11 +77,41 @@
                 }
                 let myResult = printTwoThings("Awesome!", 21);
                 console.log(myResult);
+
+                let myArray = [34, 2, 4, 5, "6", true];
+                myArray.forEach(function(item, i){
+                    console.log(item + " " + i);
+                });
+
+                var myObject = {
+                    name: "my name!",
+                    someNumber: 42,
+                    anArray: [1, 2, 3, 4, 5, 6],
+
+                    // object method
+                    echo: function(value) {
+                        console.log(value);
+                    },
+
+                    get numberPlusOne() {
+                        return this.someNumber + 1;
+                    },
+
+                    set someNumberPlusNum(number) {
+                        this.someNumber += number;
+                    },
+                };
+                myObject.name = "John Snow";
+                myObject.echo("Hello World");
+                console.log(myObject.numberPlusOne);
+                console.log(myObject.someNumberPlusNum = 20);
+                console.log(myObject.someNumber);
+                
             }
         </script>
     </head>
     <body>
-        <h1 style="text-align: center;">10-7 JavaScript</h1>
+        <h1 style="text-align: center;">10-10 JavaScript</h1>
         <!-- Questions from Canvas -->
         <div class="list-container">
             <img src="./what-a-meme.PNG" alt="this is a bad meme" width="750px">
