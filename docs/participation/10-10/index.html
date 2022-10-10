@@ -106,7 +106,20 @@
                 console.log(myObject.numberPlusOne);
                 console.log(myObject.someNumberPlusNum = 20);
                 console.log(myObject.someNumber);
-                
+
+                let dateTimeNow = new Date();
+                console.log(dateTimeNow);
+
+                var currentDate = {
+                    dateTime: null,
+                };
+
+                document.getElementById("update-date")
+                    .addEventListener("click", pizzaTime);
+
+                function pizzaTime() {
+                    console.log("Is it Pizza time?!");
+                }
             }
         </script>
     </head>
@@ -117,6 +130,18 @@
             <img src="./what-a-meme.PNG" alt="this is a bad meme" width="750px">
         </div>
         <h3>The One Piece is Real!</h3>
+        <div class="list-container">
+            <p>
+                <span id="date-text">
+                    Click the button...
+                </span>
+            </p>
+            <p>
+                <button id="update-button">
+                    Click to see current date time!
+                </button>
+            </p>
+        </div>
         <p style="text-align: center;"><a href="../../index.html">Back to the index</a></p>
     </body>
 </html>
