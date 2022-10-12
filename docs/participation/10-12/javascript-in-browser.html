@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>10-12 Participation</title>
     <style>
 
     </style>
@@ -15,9 +15,9 @@
     <script>
         window.onload = function () {
 
-
             //document represents the entire DOM
             var thisDocument = document.getElementById("container");
+            console.log(thisDocument.innerHTML);
             //window object
             console.log(window.innerWidth);
             console.log(window.innerHeight);
@@ -30,6 +30,28 @@
             var allDivs = document.querySelectorAll("body div");
             var firstDiv = document.querySelector("body div");
 
+            // event handler
+            document.getElementById("date-button-start").addEventListener("click", startClock);
+            document.getElementById("date-button-stop").addEventListener("click", stopClock);
+
+            var clock = null;
+            var date;
+
+            function startClock() {
+                console.log("Started clock...");
+                clock = setInterval(updateClock, 1);
+            }// end of startClock
+
+            function stopClock() {
+                console.log("Stopped clock...");
+                clearInterval(clock);
+            }// end of stopClock
+
+            function updateClock() {
+                console.log("Clock tick...");
+                date = new Date();
+                document.getElementById("date-span").innerText = "Current Time: " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds();
+            }// end of updateClock
 
         }//end of onload function
     </script>
