@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>10-21 Participation</title>
+        <style>
+            body, p {
+                display: flex;
+                justify-content: center;
+            }
+            fieldset legend {
+                padding: 2px;
+                border: 4px aquamarine ridge
+            }
+            fieldset {
+                border: 10px blueviolet ridge;
+                padding: 3px;
+                margin: 15px;
+                max-width: 800px;
+            }
+            fieldset form {
+                padding: 5px;
+                margin: 5px;
+            }
+            p label, p input, p button {
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+            .center {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+
+        <script>
+            const colorID = document.getElementById("color");
+            const foodID = document.getElementById("food");
+            const memeID = document.getElementById("meme");
+            const colorSave = document.getElementById("color");
+            const foodSave = document.getElementById("food");
+            const memeSave = document.getElementById("meme");
+
+            colorSave.addEventListener('click', () => {
+
+            });
+            foodSave.addEventListener('click', () => {
+
+            });
+            memeSave.addEventListener('click', () => {
+
+            });
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>CPSC 332 10/21 Participation</legend>
+            <form action="./submission.html" method="POST">
+                <p>
+                    <label for="color">Favorite Meme:</label>
+                    <input type="text" name="color" id="color">
+                    <button id="saveColor">Save Data</button>
+                </p>
+
+                <p>
+                    <label for="food">Favorite Meme:</label>
+                    <input type="text" name="food" id="food">
+                    <button id="saveFood">Save Data</button>
+                </p>
+
+                <p>
+                    <label for="meme">Favorite Meme:</label>
+                    <input type="text" name="meme" id="meme">
+                    <button id="saveMeme">Save Data</button>
+                </p>
+                <div class="center">
+                    <input type="submit" value="Submit Response">
+                </div>
+            </form>
+            <p><a href="../../index.html">Back to Participation Index</a></p>
+        </fieldset>
+    </body>
+</html>
