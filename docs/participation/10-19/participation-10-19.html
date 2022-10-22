@@ -111,6 +111,7 @@
                         if (ball2Coords[0] < 0 || ball2Coords[0] > canvas.width)
                             xInc *= -1;
 
+                        ball2Coords[1] += yInc;
                         if (ball2Coords[1] < 0 || ball2Coords[1] > canvas.height)
                             yInc *= -1;
 
@@ -207,9 +208,9 @@
 
             canvas.addEventListener("mousemove", function (e) {
                 lastPosition = [e.clientX, e.clientY];
-                console.log("Event: " + e.clientX);
-                //on mouse move, request the animation frame is updated (redraw/paint the canvas)
-                animFrameId = window.requestAnimationFrame(createAtMouseMove);
+                // console.log("Event: " + e.clientX);
+                // //on mouse move, request the animation frame is updated (redraw/paint the canvas)
+                // animFrameId = window.requestAnimationFrame(createAtMouseMove);
             });
 
             function createAtMouseMove() {

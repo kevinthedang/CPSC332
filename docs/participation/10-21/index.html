@@ -32,48 +32,68 @@
                 display: flex;
                 justify-content: center;
             }
+            .hide {
+                display: none;
+            }
+            h4 {
+                text-align: center;
+                color: red;
+            }
         </style>
 
         <script>
-            const colorID = document.getElementById("color");
-            const foodID = document.getElementById("food");
-            const memeID = document.getElementById("meme");
-            const colorSave = document.getElementById("color");
-            const foodSave = document.getElementById("food");
-            const memeSave = document.getElementById("meme");
+            // listen for when the browser/document has been loaded
+            window.addEventListener("DOMContentLoaded", domLoaded);
 
-            colorSave.addEventListener('click', () => {
+            // loac document to be used by script
+            function domLoaded() {
+                console.log("Document loaded");
+                // initialize button from document
+                const colorSave = document.getElementById("color-btn");
+                const foodSave = document.getElementById("food-btn");
+                const memeSave = document.getElementById("meme-btn");
 
-            });
-            foodSave.addEventListener('click', () => {
+                // initialize input data to save
+                const color = document.getElementById("color");
+                const food = document.getElementById("food");
+                const meme = document.getElementById("meme");
 
-            });
-            memeSave.addEventListener('click', () => {
+                // input name
+                let colorName = "FavoriteColor";
+                let foodName = "FavoriteFood";
+                let memeName = "FavoriteMeme";
 
-            });
+                sessionStorage.colorName = "Some Color";
+                sessionStorage.foodName = "None";
+                sessionStorage.memeName = "None";
+
+                colorSave.addEventListener("click", () => {
+                    console.log(`Save made for ${colorName}.`);
+                    sessionStorage.setItem(colorName, "wow");
+                    console.log(sessionStorage.getItem(colorName));
+                });
+            }
         </script>
     </head>
     <body>
         <fieldset>
             <legend>CPSC 332 10/21 Participation</legend>
+            <h4 class="hide" id="errorText">Input Error</h4>
+            <p></p>
+            <label for="color">Favorite Color:</label>
+            <input type="text" name="color" id="color">
+            <button id="color-btn">Save Data</button>
+
+            <p></p>
+            <label for="food">Favorite Food:</label>
+            <input type="text" name="food" id="food">
+            <button id="food-btn">Save Data</button>
+
+            <p></p>
+            <label for="meme">Favorite Meme:</label>
+            <input type="text" name="meme" id="meme">
+            <button id="meme-btn">Save Data</button>
             <form action="./submission.html" method="POST">
-                <p>
-                    <label for="color">Favorite Meme:</label>
-                    <input type="text" name="color" id="color">
-                    <button id="saveColor">Save Data</button>
-                </p>
-
-                <p>
-                    <label for="food">Favorite Meme:</label>
-                    <input type="text" name="food" id="food">
-                    <button id="saveFood">Save Data</button>
-                </p>
-
-                <p>
-                    <label for="meme">Favorite Meme:</label>
-                    <input type="text" name="meme" id="meme">
-                    <button id="saveMeme">Save Data</button>
-                </p>
                 <div class="center">
                     <input type="submit" value="Submit Response">
                 </div>
