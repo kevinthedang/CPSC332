@@ -18,15 +18,11 @@
                 border: 10px blueviolet ridge;
                 padding: 3px;
                 margin: 15px;
-                max-width: 800px;
+                max-width: 1000px;
             }
             fieldset form {
                 padding: 5px;
                 margin: 5px;
-            }
-            p label, p input, p button {
-                margin-right: 5px;
-                margin-left: 5px;
             }
             .center {
                 display: flex;
@@ -38,6 +34,9 @@
             h4 {
                 text-align: center;
                 color: red;
+            }
+            td {
+                padding-left: 10px;
             }
         </style>
 
@@ -59,18 +58,70 @@
                 const meme = document.getElementById("meme");
 
                 // input name
-                let colorName = "FavoriteColor";
-                let foodName = "FavoriteFood";
-                let memeName = "FavoriteMeme";
+                let colorName = "Favorite Color";
+                let foodName = "Favorite Food";
+                let memeName = "Favorite Meme";
 
-                sessionStorage.colorName = "Some Color";
-                sessionStorage.foodName = "None";
-                sessionStorage.memeName = "None";
+                // error text
+                function removeError() {
+                    console.log("removing error text...");
+                    if (document.getElementById("errorText") != null)
+                        document.getElementById("errorText").remove();
+                }
+
+                function addError() {
+                    console.log("adding a error text...");
+                    if (document.getElementById("errorText") == null)
+                    {                    
+                        // help will be shown in a p tag
+                        let error = document.createElement("p");
+                        error.id = "errorText";
+                        error.textContent = "Error Adding, Input Empty";
+                        error.style = "text-align: center; color: red;";
+                        document.getElementById("errorDiv").appendChild(error);
+                    }
+                }
 
                 colorSave.addEventListener("click", () => {
-                    console.log(`Save made for ${colorName}.`);
-                    sessionStorage.setItem(colorName, "wow");
-                    console.log(sessionStorage.getItem(colorName));
+                    if (!color.value)
+                    {
+                        console.log("Nothing to save, empty input string from color...");
+                        addError();
+                    }
+                    else
+                    {
+                        sessionStorage.setItem(colorName, color.value);
+                        console.log("Current fav color value: " + sessionStorage.getItem(colorName));
+                        removeError();
+                    }
+                });
+
+                foodSave.addEventListener("click", () => {
+                    if (!food.value)
+                    {
+                        console.log("Nothing to save, empty input string from food...");
+                        addError();
+                    }
+                    else
+                    {
+                        sessionStorage.setItem(foodName, food.value);
+                        console.log("Current fav color value " + sessionStorage.getItem(foodName));
+                        removeError();
+                    }
+                });
+
+                memeSave.addEventListener("click", () => {
+                    if (!meme.value)
+                    {
+                        console.log("Nothing to save, empty input string from meme...");
+                        addError();
+                    }
+                    else
+                    {
+                        sessionStorage.setItem(memeName, meme.value);
+                        console.log("Current fav color value " + sessionStorage.getItem(memeName));
+                        removeError();
+                    }
                 });
             }
         </script>
@@ -78,21 +129,24 @@
     <body>
         <fieldset>
             <legend>CPSC 332 10/21 Participation</legend>
-            <h4 class="hide" id="errorText">Input Error</h4>
-            <p></p>
-            <label for="color">Favorite Color:</label>
-            <input type="text" name="color" id="color">
-            <button id="color-btn">Save Data</button>
-
-            <p></p>
-            <label for="food">Favorite Food:</label>
-            <input type="text" name="food" id="food">
-            <button id="food-btn">Save Data</button>
-
-            <p></p>
-            <label for="meme">Favorite Meme:</label>
-            <input type="text" name="meme" id="meme">
-            <button id="meme-btn">Save Data</button>
+            <div id="errorDiv"></div>
+            <table>
+                <tr>
+                    <td><label for="color">Favorite Color:</label></td>
+                    <td><input type="text" name="color" id="color"></td>
+                    <td><button id="color-btn">Save Data</button></td>
+                </tr>
+                <tr>
+                    <td><label for="food">Favorite Food:</label></td>
+                    <td><input type="text" name="food" id="food"></td>
+                    <td><button id="food-btn">Save Data</button></td>
+                </tr>
+                <tr>
+                    <td><label for="meme">Favorite Meme:</label></td>
+                    <td><input type="text" name="meme" id="meme"></td>
+                    <td><button id="meme-btn">Save Data</button></td>
+                </tr>
+            </table>
             <form action="./submission.html" method="POST">
                 <div class="center">
                     <input type="submit" value="Submit Response">
