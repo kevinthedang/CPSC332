@@ -18,10 +18,30 @@
                 border: 2px green solid;
                 padding: 3px;
             }
+            p {
+                text-align: center;
+            }
         </style>
 
         <script>
+            window.addEventListener("DOMContentLoaded", domLoaded);
 
+            function domLoaded() {
+                // get element by id to fill in values
+                const colorFill = document.getElementById("color");
+                const foodFill = document.getElementById("food");
+                const memeFill = document.getElementById("book");
+
+                // input name
+                let colorName = "Favorite Color";
+                let foodName = "Favorite Food";
+                let bookName = "Favorite Book";
+
+                // set text
+                colorFill.innerHTML = sessionStorage.getItem(colorName);
+                foodFill.innerHTML = sessionStorage.getItem(foodName);
+                memeFill.innerHTML = sessionStorage.getItem(bookName);
+            }
         </script>
     </head>
     <body>
@@ -35,10 +55,10 @@
                 <tr>
                     <td id="color"></td>
                     <td id="food"></td>
-                    <td id="meme"></td>
+                    <td id="book"></td>
                 </tr>
             </table>
-            <p><a href="../../index.html">Back to Participation Index</a></p>
         </div>
+        <p><a href="../../index.html">Back to Participation Index</a></p>
     </body>
 </html>

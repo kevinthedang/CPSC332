@@ -47,52 +47,95 @@
             // loac document to be used by script
             function domLoaded() {
                 console.log("Document loaded");
+                
                 // initialize button from document
                 const colorSave = document.getElementById("color-btn");
                 const foodSave = document.getElementById("food-btn");
-                const memeSave = document.getElementById("meme-btn");
+                const bookSave = document.getElementById("book-btn");
 
                 // initialize input data to save
                 const color = document.getElementById("color");
                 const food = document.getElementById("food");
-                const meme = document.getElementById("meme");
+                const book = document.getElementById("book");
 
                 // input name
                 let colorName = "Favorite Color";
                 let foodName = "Favorite Food";
-                let memeName = "Favorite Meme";
+                let bookName = "Favorite Book";
 
-                // error text
+                // form validation
+                let formWidge = document.querySelector("#submission");
+
+                // remove text
                 function removeError() {
                     console.log("removing error text...");
                     if (document.getElementById("errorText") != null)
                         document.getElementById("errorText").remove();
                 }
 
-                function addError() {
+                // adding error text if user fails to save
+                function addError(name) {
                     console.log("adding a error text...");
-                    if (document.getElementById("errorText") == null)
-                    {                    
-                        // help will be shown in a p tag
-                        let error = document.createElement("p");
-                        error.id = "errorText";
-                        error.textContent = "Error Adding, Input Empty";
-                        error.style = "text-align: center; color: red;";
-                        document.getElementById("errorDiv").appendChild(error);
-                    }
+                    if (document.getElementById("errorText") != null)
+                        removeError();                  
+                    // error will be shown in a p tag
+                    let error = document.createElement("p");
+                    error.id = "errorText";
+                    error.textContent = `Error Adding ${name}, Input Empty`;
+                    error.style = "text-align: center; color: red;";
+                    document.getElementById("errorDiv").appendChild(error);
                 }
 
+                // adding success text if user successfully adds input
+                function addSave(name, input) {
+                    console.log("adding a save text...");
+                    if (document.getElementById("errorText") != null)
+                        removeError();                  
+                    // add will be shown in a p tag
+                    let success = document.createElement("p");
+                    success.id = "errorText";
+                    success.textContent = `Success Adding ${name} to ${input}!`;
+                    success.style = "text-align: center; color: green;";
+                    document.getElementById("errorDiv").appendChild(success);
+                }
+
+                function submitError(name) {
+                    console.log("adding a submit error text...");
+                    if (document.getElementById("errorText") != null)
+                        removeError();                  
+                    // submit will be shown in a p tag
+                    let success = document.createElement("p");
+                    success.id = "errorText";
+                    success.textContent = `Failure to Submit, Missing info for ${name}!`;
+                    success.style = "text-align: center; color: red;";
+                    document.getElementById("errorDiv").appendChild(success);
+                }
+
+                // focus listeners
+                color.addEventListener("focus", () => {
+                    removeError();
+                });
+
+                food.addEventListener("focus", () => {
+                    removeError();
+                });
+
+                book.addEventListener("focus", () => {
+                    removeError();
+                });
+
+                // save data button listeners
                 colorSave.addEventListener("click", () => {
                     if (!color.value)
                     {
                         console.log("Nothing to save, empty input string from color...");
-                        addError();
+                        addError("Color");
                     }
                     else
                     {
                         sessionStorage.setItem(colorName, color.value);
                         console.log("Current fav color value: " + sessionStorage.getItem(colorName));
-                        removeError();
+                        addSave(color.value, "Color");
                     }
                 });
 
@@ -100,27 +143,50 @@
                     if (!food.value)
                     {
                         console.log("Nothing to save, empty input string from food...");
-                        addError();
+                        addError("Food");
                     }
                     else
                     {
                         sessionStorage.setItem(foodName, food.value);
                         console.log("Current fav color value " + sessionStorage.getItem(foodName));
-                        removeError();
+                        addSave(food.value, "Food");
                     }
                 });
 
-                memeSave.addEventListener("click", () => {
-                    if (!meme.value)
+                bookSave.addEventListener("click", () => {
+                    if (!book.value)
                     {
                         console.log("Nothing to save, empty input string from meme...");
-                        addError();
+                        addError("Book");
                     }
                     else
                     {
-                        sessionStorage.setItem(memeName, meme.value);
-                        console.log("Current fav color value " + sessionStorage.getItem(memeName));
-                        removeError();
+                        sessionStorage.setItem(bookName, book.value);
+                        console.log("Current fav color value " + sessionStorage.getItem(bookName));
+                        addSave(book.value, "Book");
+                    }
+                });
+
+                formWidge.addEventListener("submit", (event) => {
+                    let currentColor = sessionStorage.getItem(colorName);
+                    let currentFood = sessionStorage.getItem(foodName);
+                    let currentBook = sessionStorage.getItem(bookName);
+
+                    // check save data if all are saved
+                    if (!currentColor)
+                    {
+                        event.preventDefault();
+                        submitError("Color");
+                    }
+                    else if (!currentFood)
+                    {
+                        event.preventDefault();
+                        submitError("Food");
+                    }
+                    else if (!currentBook)
+                    {
+                        event.preventDefault();
+                        submitError("Book");
                     }
                 });
             }
@@ -142,12 +208,12 @@
                     <td><button id="food-btn">Save Data</button></td>
                 </tr>
                 <tr>
-                    <td><label for="meme">Favorite Meme:</label></td>
-                    <td><input type="text" name="meme" id="meme"></td>
-                    <td><button id="meme-btn">Save Data</button></td>
+                    <td><label for="book">Favorite Book:</label></td>
+                    <td><input type="text" name="book" id="book"></td>
+                    <td><button id="book-btn">Save Data</button></td>
                 </tr>
             </table>
-            <form action="./submission.html" method="POST">
+            <form id="submission" action="./submission.html" method="POST">
                 <div class="center">
                     <input type="submit" value="Submit Response">
                 </div>
