@@ -167,7 +167,7 @@
                     }
                 });
 
-                formWidge.addEventListener("submit", (event) => {
+                function check() {
                     let currentColor = sessionStorage.getItem(colorName);
                     let currentFood = sessionStorage.getItem(foodName);
                     let currentBook = sessionStorage.getItem(bookName);
@@ -188,7 +188,7 @@
                         event.preventDefault();
                         submitError("Book");
                     }
-                });
+                };
             }
         </script>
     </head>
@@ -196,7 +196,7 @@
         <fieldset>
             <legend>CPSC 332 10/21 Participation</legend>
             <div id="errorDiv"></div>
-            <form id="submission" action="./submission.html" method="POST">
+            <form id="submission" action="./submission.html" method="POST" onsubmit="check()">
                 <table>
                     <tr>
                         <td><label for="color">Favorite Color:</label></td>
