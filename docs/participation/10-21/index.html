@@ -65,6 +65,7 @@
 
                 // form validation
                 let formWidge = document.querySelector("#submission");
+                formWidge.addEventListener("submit", check);
 
                 // remove text
                 function removeError() {
@@ -167,7 +168,7 @@
                     }
                 });
 
-                function check() {
+                function check(event) {
                     let currentColor = sessionStorage.getItem(colorName);
                     let currentFood = sessionStorage.getItem(foodName);
                     let currentBook = sessionStorage.getItem(bookName);
@@ -196,24 +197,24 @@
         <fieldset>
             <legend>CPSC 332 10/21 Participation</legend>
             <div id="errorDiv"></div>
-            <form id="submission" action="./submission.html" method="POST" onsubmit="check()">
-                <table>
-                    <tr>
-                        <td><label for="color">Favorite Color:</label></td>
-                        <td><input type="text" name="color" id="color" required></td>
-                        <td><button id="color-btn">Save Data</button></td>
-                    </tr>
-                    <tr>
-                        <td><label for="food">Favorite Food:</label></td>
-                        <td><input type="text" name="food" id="food" required></td>
-                        <td><button id="food-btn">Save Data</button></td>
-                    </tr>
-                    <tr>
-                        <td><label for="book">Favorite Book:</label></td>
-                        <td><input type="text" name="book" id="book" required></td>
-                        <td><button id="book-btn">Save Data</button></td>
-                    </tr>
-                </table>
+            <table>
+                <tr>
+                    <td><label for="color">Favorite Color:</label></td>
+                    <td><input type="text" name="color" id="color"></td>
+                    <td><button id="color-btn">Save Data</button></td>
+                </tr>
+                <tr>
+                    <td><label for="food">Favorite Food:</label></td>
+                    <td><input type="text" name="food" id="food"></td>
+                    <td><button id="food-btn">Save Data</button></td>
+                </tr>
+                <tr>
+                    <td><label for="book">Favorite Book:</label></td>
+                    <td><input type="text" name="book" id="book"></td>
+                    <td><button id="book-btn">Save Data</button></td>
+                </tr>
+            </table>
+            <form id="submission" action="./submission.html" method="POST"></form>
                 <div class="center">
                     <input type="submit" value="Submit Response">
                 </div>
