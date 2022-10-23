@@ -64,8 +64,8 @@
                 let bookName = "Favorite Book";
 
                 // form validation
-                let formWidge = document.querySelector("#submission");
-                formWidge.addEventListener("submit", check);
+                let formWidge = document.querySelector("#final");
+                formWidge.addEventListener("submit", checkForm);
 
                 // remove text
                 function removeError() {
@@ -168,7 +168,7 @@
                     }
                 });
 
-                function check(event) {
+                function checkForm(event) {
                     let currentColor = sessionStorage.getItem(colorName);
                     let currentFood = sessionStorage.getItem(foodName);
                     let currentBook = sessionStorage.getItem(bookName);
@@ -214,7 +214,7 @@
                     <td><button id="book-btn">Save Data</button></td>
                 </tr>
             </table>
-            <form id="submission" action="./submission.html" method="POST"></form>
+            <form id="final" action="./submission.html" method="POST">
                 <div class="center">
                     <input type="submit" value="Submit Response">
                 </div>
